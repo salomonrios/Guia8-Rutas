@@ -14,11 +14,14 @@
   <dd><%= @engineer.proyect_id %></dd>
 </dl>
 
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               engineers_path, :class => 'btn'  %>
+
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_engineer_path(@engineer), :class => 'btn' %>
+  
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               engineer_path(@engineer),
               :method => 'delete',
