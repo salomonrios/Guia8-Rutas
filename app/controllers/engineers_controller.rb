@@ -1,10 +1,10 @@
 class EngineersController < ApplicationController
-  before_action :set_engineer, only: [:show, :edit, :update, :destroy]
+  before_action :set_engineer, only: [:show, :edit, :update, :destroy,:index, :new, :create]
 
   # GET /engineers
   # GET /engineers.json
   def index
-    @engineers = Engineer.all
+    @engineers = @proyect.engineers.all # lista solo los ingenieros de ese proyecto no todos
   end
 
   # GET /engineers/1
@@ -25,10 +25,10 @@ class EngineersController < ApplicationController
   # POST /engineers.json
   def create
     @engineer = Engineer.new(engineer_params)
-
+    @engineer.proyect_id = @proyect.id
     respond_to do |format|
       if @engineer.save
-        format.html { redirect_to @engineer, notice: 'Engineer was successfully created.' }
+        format.html { redirect_to  proyect_engineers_path(@proyect), notice: 'Engineer was successfully created.' }
         format.json { render :show, status: :created, location: @engineer }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class EngineersController < ApplicationController
   def update
     respond_to do |format|
       if @engineer.update(engineer_params)
-        format.html { redirect_to @engineer, notice: 'Engineer was successfully updated.' }
+        format.html { redirect_to proyect_engineers_path(@proyect) , notice: 'Engineer was successfully updated.' }
         format.json { render :show, status: :ok, location: @engineer }
       else
         format.html { render :edit }
@@ -56,16 +56,17 @@ class EngineersController < ApplicationController
   def destroy
     @engineer.destroy
     respond_to do |format|
-      format.html { redirect_to engineers_url, notice: 'Engineer was successfully destroyed.' }
+      format.html { redirect_to proyect_engineers_url(@proyect), notice: 'Engineer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_engineer
-      @engineer = Engineer.find(params[:id])
-    end
+  def set_engineer
+    @proyect = Proyect.find(params[:proyect_id]) # recupera el proyecto
+    @engineer = Engineer.find(params[:id]) if params[:id] # recupera el id solo si lo envian
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def engineer_params
