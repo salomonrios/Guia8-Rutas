@@ -1,0 +1,75 @@
+== README
+
+Este es un proyecto de Rails4.x del cual se parte como  base para trabajar varios ejercicios y en donde se irá construyendo a partir
+de los avances en el curso de este framework.
+
+Este proyecto lo guiará dentro de Rails4.x a través de la creación de un proyecto bajo la siguiente plataforma:
+
+* Ruby version
+  ruby 2.1.1	
+
+* System dependencies
+  rails 4.1.1
+  
+* Database creation
+  sqlite3
+
+* ...
+
+Lo primero que debe de hacer si desea trabajar con este proyecto es:
+1- parado en la ruta donde desea Clone este repositorio por consola(terminal) con el siguiente comando git:
+$ git clone https://github.com/pollcaz/ror4x.git
+
+2- Sin salirse de la ruta en la consola ingrese al proyecto clonado con el siguiente comando:
+$ cd ror4x  
+
+3- Instale las gemas requeridas del proyecto con el siguiente comando:
+$ bundle install
+
+En este punto ya puede dar inicio a realizar los scaffold que desee y aplicar las migraciones de los mismos.
+
+* -----------------------------------------------------------------------------------------------------------------------
+
+En caso de que no lo desee clonar sino hacerlo desde cero en forma local en su terminal, aquí están las instrucciones:
+
+
+1- Crear el proyecto en lo posible utilizando RVM( https://rvm.io) en un gemset nuevo para su app(Esto asumo que ya lo hizo)
+  $ rails new ror4x
+  $ cd ror4x
+
+2- Modifique con su editor preferido el archivo Gemfile, el cual se encuentra en la raiz
+  de su proyecto,  adicione la gema que compilará sus javascript, para esto solo debe de
+  descomentariar osea quitar el símbolo (#) y dejar esta linea así:
+  gem 'therubyracer', platforms: :ruby	
+
+  guarde los cambios para terminar.
+
+3- Ejecute el siguiente comando por consola(terminal) parado en la raiz de su proyecto para instalar las gemas de su Gemfile:
+  $ bundle install
+  
+  Recuerde que siempre que modifique el Gemfile deberá correr el comando bundle para instalar las 
+  nuevas gemas que requiere su proyecto.   
+
+Ahora puede dar inicio a realizar los scaffolds y aplicar las migraciones de los mismos.
+
+*------------------------------------------------------------------------
+
+Nota: Deseamos adicionarle estilos a nuestro proyecto por tanto utilizaremos Bootstrap como framework de CSS y la gema Simple_form para facilitar nuestro trabajo con los formularios, 
+para esto deberan realizar lo siguiente:
+
+1- Adicione las siguientes gemas en su Gemfile y guarde los cambios
+   gem 'simple_form'
+   gem 'twitter-bootstrap-rails'
+   gem 'less-rails'
+
+2- Instale las gemas parado en la raiz de su proyecto dentro de su gemset de su aplicación así:
+   $ bundle install
+
+3- Instale los archivos requeridos para su app tanto de Simple_form como de Bootstrap
+   $ rails g simple_form:install --bootstrap
+   $ rails g bootstrap:install
+
+Nota: Este paso solo se hace una vez, tenga en cuenta que para scaffold que desee realizar 
+      debe hacerlo con el parametro --skip-stylesheets al final, de lo contrario, sobrescribirá los css de bootstrap
+
+   Ejemplo: rails g scaffold nombre_modelo campos:tipo_campos  --skip-stylesheets

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fullname: MyString
+  dependency: MyString
+  studies: MyString
+  proyect_id: 
+
+two:
+  fullname: MyString
+  dependency: MyString
+  studies: MyString
+  proyect_id: 

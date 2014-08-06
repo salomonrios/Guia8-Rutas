@@ -1,0 +1,9 @@
+      Prefix Verb   URI Pattern                  Controller#Action
+    proyects GET    /proyects(.:format)          proyects#index
+             POST   /proyects(.:format)          proyects#create
+ new_proyect GET    /proyects/new(.:format)      proyects#new
+edit_proyect GET    /proyects/:id/edit(.:format) proyects#edit
+     proyect GET    /proyects/:id(.:format)      proyects#show
+             PATCH  /proyects/:id(.:format)      proyects#update
+             PUT    /proyects/:id(.:format)      proyects#update
+             DELETE /proyects/:id(.:format)      proyects#destroy
